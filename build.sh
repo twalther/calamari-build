@@ -41,3 +41,5 @@ cp calamari-rhel.6-x64-$GIT_VERSION.tar.gz ../artifacts-history
 
 echo "Created artifacts/calamari-rhel.6-x64-$GIT_VERSION.tar.gz"
 echo "Copied to artifacts-history/calamari-rhel.6-x64-$GIT_VERSION.tar.gz"
+
+cd ..
