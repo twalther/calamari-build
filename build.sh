@@ -13,11 +13,17 @@ docker build \
 	calamari-build \
 	.
 
-docker run \
-	--rm \
-	--name calamari-build \
-	--mount type=bind,source="$(pwd)"/artifacts,target=/artifacts \
+docker rm \
 	calamari-build
+
+docker create \
+	--name calamari-build \
+	calamari-build \
+	/bin/bash
+
+rm -rf artifacts
+
+docker cp calamari-build:/artifacts ./
 
 cd artifacts
 
@@ -34,4 +40,4 @@ fi
 cp calamari-rhel.6-x64-$GIT_VERSION.tar.gz ../artifacts-history
 
 echo "Created artifacts/calamari-rhel.6-x64-$GIT_VERSION.tar.gz"
-echo "Saved to artifacts-history/calamari-rhel.6-x64-$GIT_VERSION.tar.gz"
+echo "Copied to artifacts-history/calamari-rhel.6-x64-$GIT_VERSION.tar.gz"

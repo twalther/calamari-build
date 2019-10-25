@@ -43,4 +43,8 @@ RUN dotnet build Calamari  -c Release -f netcoreapp2.2 /p:Version=$(cat .gitvers
 
 RUN dotnet publish Calamari  -c Release -f netcoreapp2.2 -o ./artifacts --self-contained -r rhel.6-x64 /p:Version=$(cat .gitversion.txt)
 
-CMD exec /bin/sh -c "rm -rf /artifacts/* && mkdir -p /artifacts && cp -r /app/source/Calamari/artifacts/ / && cp /app/source/.gitversion.txt /artifacts && echo 'copied files to /artifacts, please bind mount this folder'"
+RUN rm -rf /artifacts/* && \
+	mkdir -p /artifacts && \
+	cp -r /app/source/Calamari/artifacts/ / && \
+	cp /app/source/.gitversion.txt /artifacts && \
+	echo 'copied files to /artifacts'
