@@ -27,7 +27,7 @@ docker cp calamari-build:/artifacts ./
 
 cd artifacts
 
-GIT_VERSION=$(cat .gitversion.txt)
+export GIT_VERSION=$(cat .gitversion.txt)
 
 rm .gitversion.txt
 
