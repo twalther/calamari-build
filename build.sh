@@ -9,8 +9,8 @@ else
 fi
 
 docker build \
-	-t \
-	calamari-build \
+	--build-arg GIT_VERSION=$GIT_VERSION \
+	-t calamari-build \
 	.
 
 docker rm \

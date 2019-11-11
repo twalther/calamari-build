@@ -1,5 +1,9 @@
 FROM centos:6.6
 
+ARG GIT_VERSION
+
+ENV GIT_VERSION=${GIT_VERSION}
+
 RUN yum install -y yum-plugin-ovl
 
 RUN yum install -y \
